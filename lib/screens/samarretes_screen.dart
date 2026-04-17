@@ -28,7 +28,7 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
     if (cantidad != null && cantidad! > 0) {
       precioFinal = preuDefinitiu(cantidad!, tallaSeleccionada, descompteSeleccionado);
     }
-
+    //commit ratio
     return Scaffold(
       backgroundColor: Colors.transparent,
       body: SafeArea(
