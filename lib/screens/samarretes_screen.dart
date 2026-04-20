@@ -23,7 +23,12 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
   int descompteSeleccionado = 0; // 0: Cap, 1: 10%, 2: 20€ (>100)
 
   // Lista estática de tallas disponibles
-  static const List<String> _tallas = <String>['S', 'M', 'L', 'XL']; // Llista de talles disponibles
+  static const List<String> _tallas = <String>[
+    'S',
+    'M',
+    'L',
+    'XL',
+  ]; // Llista de talles disponibles
 
   // Mapa estático de opciones de descuento
   static const Map<int, String> _descomptes = <int, String>{
@@ -39,13 +44,18 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
     double? precioFinal;
     if (cantidad != null && cantidad! > 0) {
       // Llama a la función preuDefinitiu del archivo calculator.dart
-      precioFinal = preuDefinitiu(cantidad!, tallaSeleccionada, descompteSeleccionado); // Calculamos el precio final usando la función del archivo calculator.dart
+      precioFinal = preuDefinitiu(
+        cantidad!,
+        tallaSeleccionada,
+        descompteSeleccionado,
+      ); // Calculamos el precio final usando la función del archivo calculator.dart
     }
 
     // Retorna el Scaffold principal con fondo transparente
     return Scaffold(
       // Fondo transparente para mostrar el gradiente del contenedor
-      backgroundColor: Colors.transparent, // Fondo transparente para mostrar el gradiente del contenedor
+      backgroundColor: Colors
+          .transparent, // Fondo transparente para mostrar el gradiente del contenedor
       // Usa SafeArea para evitar áreas de sistema
       body: SafeArea(
         // Contenedor con gradiente de fondo
@@ -98,9 +108,7 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                           // Texto del título
                           Text(
                             'Samarretes Studio',
-                            style: Theme.of(context)
-                                .textTheme
-                                .headlineMedium
+                            style: Theme.of(context).textTheme.headlineMedium
                                 ?.copyWith(color: Colors.white),
                           ),
                           // Espacio entre elementos
@@ -108,7 +116,10 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                           // Texto descriptivo
                           const Text(
                             'Calcula preu base i descompte en segons.',
-                            style: TextStyle(color: Color(0xFFE9FFF8), fontSize: 16),
+                            style: TextStyle(
+                              color: Color(0xFFE9FFF8),
+                              fontSize: 16,
+                            ),
                           ),
                         ],
                       ),
@@ -139,7 +150,9 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                             TextField(
                               decoration: InputDecoration(
                                 labelText: 'Numero de samarretes',
-                                prefixIcon: const Icon(Icons.shopping_bag_outlined),
+                                prefixIcon: const Icon(
+                                  Icons.shopping_bag_outlined,
+                                ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
                                 ),
@@ -165,8 +178,9 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                                       label: Text(talla),
                                       selected: tallaSeleccionada == talla,
                                       // Actualiza la talla seleccionada
-                                      onSelected: (_) =>
-                                          setState(() => tallaSeleccionada = talla),
+                                      onSelected: (_) => setState(
+                                        () => tallaSeleccionada = talla,
+                                      ),
                                     ),
                                   )
                                   .toList(),
@@ -179,7 +193,9 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                               isExpanded: true,
                               decoration: InputDecoration(
                                 labelText: 'Descompte',
-                                prefixIcon: const Icon(Icons.local_offer_outlined),
+                                prefixIcon: const Icon(
+                                  Icons.local_offer_outlined,
+                                ),
                                 border: OutlineInputBorder(
                                   borderRadius: BorderRadius.circular(14),
                                 ),
@@ -214,13 +230,17 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                       // Muestra el precio si está disponible, sino el hint
                       child: precioFinal != null
                           ? Container(
-                              key: ValueKey<String>('result-${precioFinal.toStringAsFixed(2)}'),
+                              key: ValueKey<String>(
+                                'result-${precioFinal.toStringAsFixed(2)}',
+                              ),
                               width: double.infinity,
                               padding: const EdgeInsets.all(20),
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(20),
                                 color: const Color(0xFFF2FFF9),
-                                border: Border.all(color: const Color(0xFFAFD8C7)),
+                                border: Border.all(
+                                  color: const Color(0xFFAFD8C7),
+                                ),
                               ),
                               // Columna para el precio final
                               child: Column(
@@ -242,7 +262,9 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                                     style: Theme.of(context)
                                         .textTheme
                                         .headlineMedium
-                                        ?.copyWith(color: const Color(0xFF0D5D56)),
+                                        ?.copyWith(
+                                          color: const Color(0xFF0D5D56),
+                                        ),
                                   ),
                                 ],
                               ),
