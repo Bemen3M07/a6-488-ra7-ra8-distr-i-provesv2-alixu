@@ -293,4 +293,4 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
       ),
     );
   }
-}
+}// final de la clase _SamarretesScreenState
