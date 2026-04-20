@@ -273,6 +273,7 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                               ),
                             )
                           : Container(
+                              //aqui definimos en el key el hint que es lo que se muestra cuando no hay un precio final calculado, es decir, cuando el usuario no ha introducido datos válidos
                               key: const ValueKey<String>('hint'),
                               width: double.infinity,
                               padding: const EdgeInsets.all(20),
