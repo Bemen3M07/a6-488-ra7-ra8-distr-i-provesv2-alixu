@@ -43,7 +43,7 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
     // Calcula el precio final solo si hay cantidad válida
     double? precioFinal;
     if (cantidad != null && cantidad! > 0) {
-      // Llama a la función preuDefinitiu del archivo calculator.dart
+      // Llama a la función preuDefinitiu del archivo calculator.dart para obtener el precio final
       precioFinal = preuDefinitiu(
         cantidad!,
         tallaSeleccionada,
@@ -108,7 +108,9 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                           // Texto del título
                           Text(
                             'Samarretes Studio',
-                            style: Theme.of(context).textTheme.headlineMedium
+                            style: Theme.of(context)
+                                .textTheme
+                                .headlineMedium
                                 ?.copyWith(color: Colors.white),
                           ),
                           // Espacio entre elementos
@@ -230,6 +232,7 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
                       // Muestra el precio si está disponible, sino el hint
                       child: precioFinal != null
                           ? Container(
+                              //el contenedor del resultado con el precio final
                               key: ValueKey<String>(
                                 'result-${precioFinal.toStringAsFixed(2)}',
                               ),
@@ -293,4 +296,4 @@ class _SamarretesScreenState extends State<SamarretesScreen> {
       ),
     );
   }
-}// final de la clase _SamarretesScreenState
+} // final de la clase _SamarretesScreenState
